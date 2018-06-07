@@ -12,8 +12,9 @@ def main(args=None):
     #g = Grid()
     #print(g.grid[1][2])
 
-    while terminata != True:
+    while not (terminata):
        t.Turn()
+       terminata = t.CheckEnd()
 
 if __name__ == '__main__':
     main(sys.argv[1:])

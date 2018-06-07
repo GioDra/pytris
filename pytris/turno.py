@@ -34,3 +34,28 @@ class Match(object):
             else:
                 done = self.g.InsertGrid(y,x,"O")
 
+    def CheckEnd(self):
+        #Controllo righe e colonne
+        for x in range(0,3):
+            y = 0
+            if self.g.grid[x][y] != "*":
+                if self.g.grid[x][y] == self.g.grid[x][y+1] and self.g.grid[x][y]==self.g.grid[x][y+2]:
+                    print("Complimeti hai vinto")
+                    return True
+                if self.g.grid[y][x] == self.g.grid[y+1][x] and self.g.grid[y][x]==self.g.grid[y+2][x]:
+                    print("Complimeti hai vinto")
+                    return True
+
+        #Controlle delle diagonali
+        x=0
+        y=0
+        if self.g.grid[x][y] != "*":
+            if self.g.grid[x][y] == self.g.grid[x+1][y+1] and self.g.grid[x][y] == self.g.grid[x+2][y+2]:
+                print("Complimeti hai vinto")
+                return True
+        y=2
+        if self.g.grid[x][y] != "*":
+            if self.g.grid[x][y] == self.g.grid[x+1][y-1] and self.g.grid[x][y] == self.g.grid[x+2][y-2]:
+                print("Complimenti hai vinto")
+                return True
+        return False
