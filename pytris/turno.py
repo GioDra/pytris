@@ -21,14 +21,16 @@ class Match(object):
         self.Move(p)
 
     def Move(self,p):
-        x=0
-        y=0
-        self.g.PrintGrid();
-        while not x in range(1,4) and not y in range(1,4):
-            x = int(input("In quale colonna si vuole inserire la mossa? (1-3): "))-1
-            y = int(input("In quale riga si vuole inserire la mossa? (1-3): "))-1
-        if (self.change):
-            self.g.grid[y][x]="X"
-        else:
-            self.g.grid[y][x]="O"
+        done = False
+        while not(done):
+            x=-1
+            y=-1
+            self.g.PrintGrid();
+            while not x in range(0,3) and not y in range(0,3):
+                x = int(input("In quale colonna si vuole inserire la mossa? (1-3): "))-1
+                y = int(input("In quale riga si vuole inserire la mossa? (1-3): "))-1
+            if (self.change):
+                done = self.g.InsertGrid(y,x,"X")
+            else:
+                done = self.g.InsertGrid(y,x,"O")
 

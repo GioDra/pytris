@@ -20,3 +20,11 @@ class Grid(object):
             for y in range (0,3):
                 msg+=""+str(self.grid[x][y])+"\t"
             print(msg+"\n")
+
+    def InsertGrid(self,y,x,mark):
+        if self.grid[y][x]!="*":
+            print("Input non valido")
+            return False
+        else:
+            self.grid[y][x]=mark
+            return True
