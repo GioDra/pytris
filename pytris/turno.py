@@ -46,6 +46,7 @@ class Match(object):
                     print("Complimeti hai vinto")
                     return True
 
+
         #Controlle delle diagonali
         x=0
         y=0
