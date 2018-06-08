@@ -40,10 +40,11 @@ class Match(object):
             y = 0
             if self.g.grid[x][y] != "*":
                 if self.g.grid[x][y] == self.g.grid[x][y+1] and self.g.grid[x][y]==self.g.grid[x][y+2]:
-                    print("Complimeti hai vinto")
+                    print("Complimeti hai vinto (orizzontale)")
                     return True
+            if self.g.grid[y][x] != "*":
                 if self.g.grid[y][x] == self.g.grid[y+1][x] and self.g.grid[y][x]==self.g.grid[y+2][x]:
-                    print("Complimeti hai vinto")
+                    print("Complimeti hai vinto (verticale)")
                     return True
 
 
@@ -52,11 +53,21 @@ class Match(object):
         y=0
         if self.g.grid[x][y] != "*":
             if self.g.grid[x][y] == self.g.grid[x+1][y+1] and self.g.grid[x][y] == self.g.grid[x+2][y+2]:
-                print("Complimeti hai vinto")
+                print("Complimeti hai vinto (diagonale_1)")
                 return True
         y=2
         if self.g.grid[x][y] != "*":
             if self.g.grid[x][y] == self.g.grid[x+1][y-1] and self.g.grid[x][y] == self.g.grid[x+2][y-2]:
-                print("Complimenti hai vinto")
+                print("Complimenti hai vinto (diagonale_2)")
                 return True
+        y=0
+        full= True
+        while x < 3 and (full):
+            for y in range(0,2):
+                if self.g.grid[x][y]=="*":
+                    full= False
+            x+=1
+        if(full):
+            print("Pareggio")
+            return True
         return False
