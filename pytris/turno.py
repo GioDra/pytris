@@ -8,8 +8,12 @@ class Match(object):
     def __init__(self,p1,p2):
         self.p1=p1
         self.p2=p2
+
+        #Viene istanziato un oggetto di classe Grid per la gestione del 'campo' di gioco
         self.g = Grid();
 
+
+    #Questo metodo permette di capire a chi tocca prima di iniziare la fase del turno vera e propria
     def Turn(self):
         if(self.change == True):
             p = self.p1
@@ -20,6 +24,7 @@ class Match(object):
         print(p, ' è il tuo turno')
         self.Move(p)
 
+    #Viene richiesto all'utente quale casella vuole riempire (griglia3x3)
     def Move(self,p):
         done = False
         while not(done):
@@ -42,6 +47,8 @@ class Match(object):
             else:
                 done = self.g.InsertGrid(y,x,"O")
 
+
+    #Controllo delle clausole di conclusione del gioco
     def CheckEnd(self):
         #Controllo righe e colonne
         for x in range(0,3):

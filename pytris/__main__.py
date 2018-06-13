@@ -1,6 +1,14 @@
 import sys
 from turno import Match
-#from grid import Grid
+
+'''
+Gioco del tris
+'''
+
+'''
+Nel main di questo programam vengono solo richiesti i nomi dei giocatori, il resto della partita sarà gestito da un oggetto
+di classe Turno
+'''
 
 def main(args=None):
     print('Benvenuto nel gioco del Tris')
@@ -9,8 +17,6 @@ def main(args=None):
     print('Nomi giocatori: ',p1 ,p2)
     terminata = False
     t = Match(p1,p2)
-    #g = Grid()
-    #print(g.grid[1][2])
 
     while not (terminata):
        t.Turn()
