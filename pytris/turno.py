@@ -26,9 +26,17 @@ class Match(object):
             x=-1
             y=-1
             self.g.PrintGrid();
-            while not x in range(0,3) and not y in range(0,3):
-                x = int(input("In quale colonna si vuole inserire la mossa? (1-3): "))-1
-                y = int(input("In quale riga si vuole inserire la mossa? (1-3): "))-1
+            while not x in range(0,3) or not y in range(0,3):
+                try:
+                    x = int(input("In quale colonna si vuole inserire la mossa? (1-3): "))-1
+                except ValueError:
+                    print("Input non valido")
+                    x=-1
+                try:
+                    y = int(input("In quale riga si vuole inserire la mossa? (1-3): "))-1
+                except ValueError:
+                    print("Input non valido")
+                    y=-1
             if (self.change):
                 done = self.g.InsertGrid(y,x,"X")
             else:
