@@ -20,6 +20,7 @@ def main(args=None):
 
     while not (terminata):
        t.Turn()
+       t.Move()
        terminata = t.CheckEnd()
 
 if __name__ == '__main__':

@@ -1,8 +1,12 @@
 from grid import Grid
-
+'''
+usare questo importo per i test con il comando tox
+from pytris.grid import Grid
+'''
 class Match(object):
     p1=""
     p2=""
+    p=""
     change = True
 
     def __init__(self,p1,p2):
@@ -16,16 +20,16 @@ class Match(object):
     #Questo metodo permette di capire a chi tocca prima di iniziare la fase del turno vera e propria
     def Turn(self):
         if(self.change == True):
-            p = self.p1
+            self.p = self.p1
             self.change = False
         else:
-            p = self.p2
+            self.p = self.p2
             self.change = True
-        print(p, ' è il tuo turno')
-        self.Move(p)
+        print(self.p, ' è il tuo turno')
+
 
     #Viene richiesto all'utente quale casella vuole riempire (griglia3x3)
-    def Move(self,p):
+    def Move(self):
         done = False
         while not(done):
             x=-1
